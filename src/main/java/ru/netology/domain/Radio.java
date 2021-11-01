@@ -54,11 +54,8 @@ public class Radio {
         return currentVolume;
     }
 
-    public void setCurrentVolume(int currentVolume) {
-        if (currentVolume < 0 || currentVolume > 100) {
-            return;
-        }
-        this.currentVolume = currentVolume;
+    public void setCurrentVolume(int newCurrentVolume) {
+        currentVolume = newCurrentVolume;
     }
 
     //увеличить звук
