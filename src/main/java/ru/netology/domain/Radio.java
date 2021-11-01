@@ -4,6 +4,19 @@ public class Radio {
     //поля объекта Радио
     private int currentStation;
     private int currentVolume;
+    private int numberOfStations = 10;
+
+    public Radio() {
+    }
+
+    public Radio(int numberOfStations) {
+        this.numberOfStations = numberOfStations;
+    }
+
+    //узнать количество станций
+    public int getNumberOfStations() {
+        return numberOfStations;
+    }
 
     //текущая станция
     public int getCurrentStation() {
@@ -12,7 +25,7 @@ public class Radio {
 
     //установить станцию
     public void setCurrentStation(int currentStation) {
-        if (currentStation < 0 || currentStation > 9) {
+        if (currentStation < 0 || currentStation > numberOfStations - 1) {
             return;
         }
         this.currentStation = currentStation;
@@ -20,7 +33,7 @@ public class Radio {
 
     //следующая станция
     public void setNextStation() {
-        if (currentStation < 9) {
+        if (currentStation < numberOfStations - 1) {
             currentStation = currentStation + 1;
         } else {
             currentStation = 0;
@@ -32,7 +45,7 @@ public class Radio {
         if (currentStation > 0) {
             currentStation = currentStation - 1;
         } else {
-            currentStation = 9;
+            currentStation = numberOfStations - 1;
         }
     }
 
@@ -41,13 +54,16 @@ public class Radio {
         return currentVolume;
     }
 
-    public void setCurrentVolume(int newCurrentVolume) {
-        currentVolume = newCurrentVolume;
+    public void setCurrentVolume(int currentVolume) {
+        if (currentVolume < 0 || currentVolume > 100) {
+            return;
+        }
+        this.currentVolume = currentVolume;
     }
 
     //увеличить звук
     public void increaseVolume() {
-        if (currentVolume < 10) {
+        if (currentVolume < 100) {
             currentVolume = currentVolume + 1;
         }
     }
