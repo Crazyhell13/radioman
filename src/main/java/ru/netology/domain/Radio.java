@@ -12,25 +12,26 @@ public class Radio {
 
     //установить станцию
     public void setCurrentStation(int currentStation) {
-        if (currentStation <0 || currentStation >9){
+        if (currentStation < 0 || currentStation > 9) {
             return;
         }
         this.currentStation = currentStation;
     }
 
     //следующая станция
-    public void setNextStation (){
+    public void setNextStation() {
         if (currentStation < 9) {
-            currentStation = currentStation +1;
-        }else {
+            currentStation = currentStation + 1;
+        } else {
             currentStation = 0;
         }
     }
+
     //предыдущая станция
-    public void setPrevStation (){
+    public void setPrevStation() {
         if (currentStation > 0) {
-            currentStation = currentStation -1;
-        }else {
+            currentStation = currentStation - 1;
+        } else {
             currentStation = 9;
         }
     }
@@ -45,15 +46,16 @@ public class Radio {
     }
 
     //увеличить звук
-    public void increaseVolume (){
+    public void increaseVolume() {
         if (currentVolume < 10) {
             currentVolume = currentVolume + 1;
         }
     }
+
     //уменьшить звук
-    public void decreaseVolume (){
-        if (currentVolume > 0){
-            currentVolume = currentVolume -1;
+    public void decreaseVolume() {
+        if (currentVolume > 0) {
+            currentVolume = currentVolume - 1;
         }
     }
 }
